@@ -1,0 +1,24 @@
+#Categorías gramaticales que son tónicas (según Quilis)
+
+NC  #Nombres (todos)
+NP
+VM  #Verbos (todos)
+VA
+VS
+RG  #Adverbios (todos. Incluida la negación "no":RN)
+RN
+AQ #Adjetivos calificativos
+AO #Adjetivos ordinales
+#A0 #Otros adjetivos (?)
+PP #Pronombres personal
+PI #Pronombres indefinidos
+DI #Determinante indefinido
+PX #Pronombres posesivos
+PD #Pronombres demostrativos
+DD #Determinante demostrativo
+PT #Pronombres interrogativos
+DT #Determinante interrogativo
+PE #Pronombre exclamativo
+DE #Determinante exclamativo
+Z #Numerales ¡Cuidado! Freeling une los numerales como locuciones y no todo es tónico.
+

@@ -1,0 +1,22 @@
+#5 de septiembre de 2013
+#Palabras que son átonas, y que por su etiqueta PoS no podemos detectar.
+
+
+#Pronombre átonos
+
+ME
+NOS
+TE
+OS
+LO
+LA
+LOS
+LAS
+LE
+LES
+SE
+
+#Otros
+
+TAN
+
