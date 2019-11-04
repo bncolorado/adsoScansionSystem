@@ -52,7 +52,7 @@ def extraePatron(versos, diccionario_de_frecuencias):
 	#1. Análisis categorial.
         verso_analizado = AnalizaCategoriaGramaticalFreeling.Analiza(verso=item)
         print('\t2. Análisis categorial realizado:')
-        print('\t'+verso_analizado)
+        print(u'\t'+verso_analizado)
 
 
 	#2. Separador silábico: análisis de sílaba tónica y clasificación de palabras en tónica o átona.
@@ -88,7 +88,8 @@ def extraePatron(versos, diccionario_de_frecuencias):
                        patrones+=p+'\n'
                    if p not in p_ambiguo: #Evita repetir patrones iguales de un mismo verso
                        p_ambiguo+=p+'\t'
-                   p=p[:-1]
+               if patrones[-1] == '\n':
+	               patrones = patrones[:-1]
                patron = desambiguadorPorFrecuencias.desambiguaPorFrecuencia(patrones, diccionario_de_frecuencias)
                print('\t4. Verso ambiguo con diéresis desambiguado:', patron)
         else:
@@ -110,9 +111,9 @@ def extraePatron(versos, diccionario_de_frecuencias):
                   if p not in p_ambiguo: #Evita repetir patrones iguales de un mismo verso
                       p_ambiguo+=p+'\t'
                   #p=p[:-1]
-                  if patrones[-1] == '\n':
-	                  patrones = patrones[:-1]
-                  patron = desambiguadorPorFrecuencias.desambiguaPorFrecuencia(patrones, diccionario_de_frecuencias)
+              if patrones[-1] == '\n':
+	              patrones = patrones[:-1]
+              patron = desambiguadorPorFrecuencias.desambiguaPorFrecuencia(patrones, diccionario_de_frecuencias)
               print('\t4. Patrón final:', patron)
         n+=1
         salida[item] = patron
