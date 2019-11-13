@@ -7,6 +7,7 @@
 #Aún imcompleto...
 #PorHacer: continuar por Tabla 174 en http://elies.rediris.es/elies4/Fon8.htm. Recuerda comprobar las formas. No todos los ejemplos nos valen.
 
+#Se incluyen algunas palabras mal analizadas por "acentuacion.py" como "fácilmente" (hasta que se mejor acentuacion.py/silabeo) (8/11/2019).
 
 abrogativo:ab-ro-ga-TI-vo
 abrogatorio:ab-ro-ga-TO-rio
@@ -40,6 +41,7 @@ excluir:ex-clu-IR
 
 fruir:fru-IR
 fluir:flu-IR
+fácilmente:FÁ-cil-MEN-te
 
 gruir:gru-IR
 guión:gui-ÓN
