@@ -26,7 +26,9 @@ def CargaPalabrasAtonas():
 	'Palabras átonas son exepciones: palabras que por categoría gramatical deberían ser tónicas, pero que realmente son átonas. Las palabras están en el fichero de texto "palabrasAtonas.txt".'
 	p = open('./resources/palabrasAtonas.txt', 'rU').read()
 	p = re.sub('#.*\n','',p) #Elimina los comentarios del fichero
-	palabrasAtonas = p.split()
+	#palabrasAtonas = p.split()
+	palabrasAtonas = []
+	[palabrasAtonas.append(palabra.lower()) for palabra in p.split()] #Se pasan a minúscual (lower()) para luego comparar en minúscula cno la palabra del verso.
 	return palabrasAtonas
 
 def cargaExcepciones():
@@ -62,10 +64,12 @@ def separaDieresisGrafica(verso):
 		indice += 1
 	return salida
 
-def acentuaAdverbio(palabra, categoria):
+def acentuaAdverbio(palabra, categoria, palabrasAtonas):
 	'Separa en sílabas acentúa adverbios (llama a silabeo). Si es adverbio acabado en -mente le asigna doble acentuación.'
 	p = Acentuacion.silabeo(palabra) #Separa en sílabas y acentúa el adverbio
-	if p[-7:] == '-MEN-te' and categoria == 'RG':
+	if palabra in palabrasAtonas: #Si está en lista de excepciones, queda átona.
+		adverbio=palabra #Si el ADV es "tan", queda átono siempre.
+	elif p[-7:] == '-MEN-te' and categoria == 'RG':
 		mente = p[-7:]
 		adjetivo = p[:-7]
 		adjetivo = re.sub('-', '', adjetivo)
@@ -105,13 +109,14 @@ def analizaSilabas(verso_analizado):
 		if palabra in excepciones.keys(): #si la palabra está en diccionario de excepciones, la salida es la forma ya analizada que está en el diccionario. No accede por silabeo.py.
 			silabas += excepciones[palabra]+' '
 
-		elif categoria in 'RG': #Caso de adverbio se analizan a parte por la doble acentuación de "-mente".
-			adverbio = acentuaAdverbio(palabra, categoria)
+		elif categoria in 'RG': #Caso de adverbio se analizan aparte por la doble acentuación de "-mente".
+			adverbio = acentuaAdverbio(palabra, categoria, palabrasAtonas)
 			silabas += adverbio+' '
+
 
 		elif item == verso_analizado.split(' ')[-1]: #Si es la última palabra, se acentúa (sea cual sea su categoría gramatical). Se llama a silabeo.py Esta opción no es muy robusta. Pensar otra...
 			ultima_palabra = Acentuacion.silabeo(palabra)
-			silabas += ultima_palabra
+			silabas += ultima_palabra+' '
 
 		elif categoria in categorias: #Caso con categoría tónica:
 			if palabra in palabrasAtonas: #Si está en lista de excepciones, queda átona.
@@ -123,6 +128,8 @@ def analizaSilabas(verso_analizado):
 		else: #Resto de casos se consideran categorías átonas (minúscula).
 			palabra_en_silabas = Acentuacion.silabeo(palabra) 
 			silabas += palabra_en_silabas.lower()+' '
+
+	silabas = silabas[:-1] #En la cadena queda un espacio en blanco al final que es aquí eliminado.
 	return silabas
 
 
