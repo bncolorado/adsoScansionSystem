@@ -31,6 +31,6 @@ Some runtime options are available as environment variables in the `docker run -
 - `DATA_IN`, defaults to `"data_in"`
 - `DATA_OUT`, defaults to `"data_out"`
 - `FREELINGDIR`, defaults to `"/usr"` as per the local installation in the container.
-- `FREELING_OPTIONS`, defaults to `"001010010001"`. See https://freeling-user-manual.readthedocs.io/en/latest/modules/maco/. Current options are as specified by Borja-Navarro to replicate results agains the ADSO 100 Poem Corpus.
+- `FREELING_OPTIONS`, defaults to `"001010010001"`. See https://freeling-user-manual.readthedocs.io/en/latest/modules/maco/. Current options are as specified by Borja Navarro Colorado to replicate results agains the ADSO 100 Poem Corpus.
 
 More detailed instructions to locally run the system can be found in the [analysis folder](analysis/README.md).
