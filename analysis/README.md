@@ -20,7 +20,7 @@ For the moment it runs only for Spanish sonnets —it is ready to analyse hendec
 
 The system is a set of python scripts. To run the system you must install  Python 3.x (https://www.python.org/)
 
-The system depends also on [Freeling](http://nlp.lsi.upc.edu/freeling/) to analyze the Part of Speech of each word. It must be installed and running in you computer. How to install Freeling: please see http://nlp.lsi.upc.edu/freeling/node/8 
+The system depends also on [Freeling](http://nlp.lsi.upc.edu/freeling/) to analyze the Part of Speech of each word. It must be installed and running in you computer. How to install Freeling: please see http://nlp.lsi.upc.edu/freeling/node/8
 
 To run the system, unzip it into a directory and run analizaMetrica.py
 
@@ -38,7 +38,7 @@ To analyze your own poems, follow these steps:
 2. (Alternatively, you can create "data_in" and "data_out" folders in any place in your computer and edit the route to these folders in "dir_in" and "dir_out" in analizaMetrica.py).
 3. Run `python3.x analizaMetrica.py`
 4. At the end, all poems analyzed will be stored in the "data_out" folder.
-5. During the process, the system will be printing on the screen the steps that are being carried out. If you want to store this information in a file, run  `python3.x analizaMetrica.py > log.txt` 
+5. During the process, the system will be printing on the screen the steps that are being carried out. If you want to store this information in a file, run  `python3.x analizaMetrica.py > log.txt`
 
 ## Input and output format
 
@@ -46,8 +46,8 @@ As input, all poems must be plain text. A poem per a .txt file.
 
 Output format is  a XML-TEI file (.xml extension) with a standard TEI-Header and a tag `@met`to represent the metre. TEI-Header can be edited in "utilidades/txt2xml.py". For detaills about the output format, please see:
 
-Borja Navarro Colorado, María Ribes Lafoz and Noelia Sánchez (2016) 
-"Metrical annotation of a large corpus of Spanish sonnets: 
+Borja Navarro Colorado, María Ribes Lafoz and Noelia Sánchez (2016)
+"Metrical annotation of a large corpus of Spanish sonnets:
 representation, scansion and evaluation", Proceedings of the [10th edition of the Language Resources and Evaluation Conference](http://lrec2016.lrec-conf.org/en/), 23-28 May 2016, Portorož (Slovenia) [[PDF](http://www.dlsi.ua.es/%7Eborja/453_Paper.pdf)].
 
 ## How to cite the system
