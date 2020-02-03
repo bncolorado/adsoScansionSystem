@@ -15,8 +15,8 @@ from utilidades import txt2xml_module
 from modules import escansion
 
 #Directorios de entrada y salidas
-dir_in = 'data_in/Gongora'
-dir_out = 'data_out/Gongora'
+dir_in = os.environ.get("DATA_IN", 'data_in/Gongora')
+dir_out = os.environ.get("DATA_OUT", 'data_out/Gongora')
 ruta_diccionario = 'resources/diccionarioFrecuencias.csv'
 
 #Variables generales
@@ -29,7 +29,7 @@ def abreDiccionario(ruta_diccionario):
 	diccionario_salida = {}
 	fileDir = os.path.dirname(os.path.realpath('__file__'))
 	filename = os.path.join(fileDir, ruta_diccionario)
-	diccionario_bruto = open(filename,'rt').read().split('\n') 
+	diccionario_bruto = open(filename,'rt').read().split('\n')
 	diccionario_bruto = diccionario_bruto[1:-1] #Eliminamos línea 1 (encabezado) y línea final (en blanco)
 	for line in diccionario_bruto:
 		patron = line.split('\t')[0]
@@ -42,10 +42,10 @@ for base, directorios, ficheros in os.walk(dir_in): #Recorre directorio y abre f
 	for fichero in ficheros:
 		ficheroEntrada = base + '/' + fichero
 		directorio = base.split('/')[-1]
-		
+
 		if os.path.exists(dir_out+directorio+'/'+fichero) == True: #Comprueba si el fichero ya está analizado:
 			print ("El fichero "+fichero+' ya existe.')
-		else: 
+		else:
 			print ("Analizando poema "+fichero)
 			xml = txt2xml_module.text2xml(ficheroEntrada) #Genera XML-TEI, lo procesa y extrae cada verso (sin etiquetas).
 			v = xml.findall('text/body/lg/l')#Extrae cada verso
