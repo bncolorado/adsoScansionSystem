@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import random
 
 #Dado un verso con varios patrones métrico posibles, selecciona el más frecuente.
 #Depende del diccionario de frecuencias calculado en la fase de entrenamiento (ver directorio "Recursos").
@@ -22,6 +23,6 @@ def desambiguaPorFrecuencia(patrones_cadena, diccionario_frecuencias):
 			if item in dic:
 				patron_fq.append((dic[item], item))
 		patron_fq.sort()
-		patronMasFrecuente = patron_fq[-1][1] #Salida solo el verso ambiguo.
+		patronMasFrecuente = patron_fq[-1][1] if patron_fq else random.choice(patrones) #Salida solo el verso ambiguo.
 	return patronMasFrecuente
 
